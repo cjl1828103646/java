@@ -1,0 +1,251 @@
+package 第十次作业;
+import java.util.Scanner;
+public class 程序清单11_16 {
+	public static void main(String[] args) {
+		int number1 = (int)(Math.random() * 10);
+		int number2 = (int)(Math.random() * 10);
+		int []a = new int[1001];
+		int n = 0;
+		boolean flag = true;
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("What is " + number1 + " + " + number2 + "? ");
+		int answer = input.nextInt();
+		a[n] = answer;
+		n = n + 1;
+		
+		while (number1 + number2 != answer) {
+			System.out.print("Wrong answer. Try again. What is " + number1 + " + " + number2 + "? ");
+			answer = input.nextInt();
+			for(int i = 0;i < n;i++) {
+				if(answer == a[i]) {
+					System.out.println("You already entered " + answer);
+					flag = false;
+					break;
+				}
+			}
+			if(flag) {
+				a[n] = answer;
+				n = n + 1;
+			}
+			else {
+				flag = true;
+			}
+		}
+		System.out.print("You got it!");
+	}
+}
+
+
+package 第十次作业;
+import java.util.Scanner;
+public class 程序清单11_17 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter an integer m: ");
+		int a = input.nextInt();
+		int []b = new int[10001];
+		int c = a;
+		int d = 1;
+		int max = 0;
+		while(a != 1) {
+			for(int i = 2;i <= a;i++) {
+				if(a % i == 0) {
+					if(i > max) {
+						max = i;
+					}
+					b[i] = b[i] + 1;
+					a = a / i;
+					break;
+				}
+			}
+		}
+		for(int i = 2;i <= max;i++) {
+			if(b[i] > 0 && b[i] % 2 == 1) {
+				d = d * i;
+			}
+		}
+		c = c * d;
+		System.out.println("The smallest number n for m * n to be a perfect square is " + d);
+		System.out.println("m * n is " + c);
+	}
+}
+
+
+package 第十次作业;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class 程序清单11_19 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the number of objects: ");
+		int n = input.nextInt();
+		ArrayList<Integer> list = new ArrayList<>();
+		int a;
+		int b = 1;
+		System.out.print("Enter the weight of the objects: ");
+		for(int i = 0;i < n;i++) {
+			a = input.nextInt();
+			list.add(a);
+		}
+		while(list.size() != 0) {
+			int m = 0;
+			System.out.print("Container " + b + " contains objects with weight ");
+			for(int i = 0;i < list.size();i++) {
+				if(m + list.get(i) <= 10) {
+					m = m + list.get(i);
+					System.out.print(list.get(i) + " ");
+					list.remove(i);
+					i = i - 1;
+				}
+			}
+			b = b + 1;
+			System.out.println();
+		}
+	}
+}
+
+
+package 第十次作业;
+
+public class 课后练习11_8 {
+	public static void main(String[] args) {
+		Account ac = new Account("George",1122,1000);
+		ac.setAnnualInterestRate(1.5);
+		ac.deposit(30);
+		ac.deposit(40);
+		ac.deposit(50);
+		ac.withDraw(5);
+		ac.withDraw(4);
+		ac.withDraw(2);
+		System.out.print("name: ");
+		System.out.println(ac.getName());
+		System.out.print("AnnualInterestRate: ");
+		System.out.println(ac.getAnnualInterestRate() + "%");
+		System.out.print("Balance: ");
+		System.out.println(ac.getBalance());
+		System.out.println();
+		System.out.printf("%-35s%-14s%-16s%-15s\n","Date","type","amount","balance");
+		java.util.ArrayList<Transaction> list = ac.getTransaction();
+		
+		for(int i = 0;i < list.size() ;i++) {
+			System.out.printf("%-35s%-14s%-16s%-15s\n",list.get(i).getDate(),list.get(i).getType(),list.get(i).getAmount(),list.get(i).getBalance());
+		}
+
+
+	}
+}
+
+
+package 第十次作业;
+import java.util.Date;
+import java.util.ArrayList;
+public class Account {
+	private int id = 0;
+	private String name;
+	private double balance  = 0;
+	private double annualInterestRate = 0;
+	private Date dateCreated = new Date();
+	private ArrayList<Transaction> transaction= new ArrayList<>();
+	
+	public Account() {
+	}
+	
+	public Account(String name, int id, double balance) {
+		this.name = name;
+		this.id = id;
+		this.balance = balance;
+	}
+	
+	public Account(int id, double balance) {
+		this.id = id;
+		this.balance = balance;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public java.util.ArrayList<Transaction> getTransaction(){
+		return transaction;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	public void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+	
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+	
+	public double getMonthlyInterest() {
+		double monthlyInterestRate = annualInterestRate / 12;
+		return balance * monthlyInterestRate / 100;
+	}
+	
+	public double getMonthlyInterestRate() {
+		double monthlyInterestRate = annualInterestRate / 12;
+		return monthlyInterestRate;
+	}
+	
+	public void withDraw(double money) {
+		balance -= money;
+		Transaction t = new Transaction('W',money,balance);
+		transaction.add(t);
+	}
+	
+	public void deposit(double money) {
+		balance += money;
+		Transaction t = new Transaction('D',money,balance);
+		transaction.add(t);
+	}
+}
+class Transaction {
+	private Date date = new Date();
+	private char type;
+	private double amount;
+	private double balance;
+	
+	public Transaction(char type, double amount, double balance) {
+		this.type = type;
+		this.amount = amount;
+		this.balance = balance;
+	}
+	
+	public java.util.Date getDate(){
+		return date;
+	}
+	
+	public char getType() {
+		return type;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+}
