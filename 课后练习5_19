@@ -1,0 +1,24 @@
+package 第三次作业;
+
+public class 课后练习5_19 {
+		public static void main(String[] args) {
+			for(int i = 1;i <= 8; i++) {
+					for(int j = 1; j <= 8 - i; j++) {
+						System.out.print("    ");	
+					}
+					System.out.print("1");
+					if(i == 1) {
+						System.out.println();
+					}
+					for(int h = 2; h <= i; h++) {
+						System.out.printf("%4d",(int)(Math.pow(2, h-1)));	
+					}
+					for(int o = i-1; o > 1; o--) {
+						System.out.printf("%4d",(int)(Math.pow(2, o-1)));	
+					}
+					if(i > 1) {
+					System.out.println("   1");
+					}
+				}
+			}
+}
