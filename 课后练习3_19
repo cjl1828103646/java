@@ -1,0 +1,20 @@
+package 第三次作业;
+import java.util.Scanner;
+public class 课后练习3_19 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Please enter the first edge: ");
+		double a = input.nextDouble();
+		System.out.print("Please enter the second edge: ");
+		double b = input.nextDouble();
+		System.out.print("Please enter the third edge: ");
+		double c = input.nextDouble();
+		if((a + b > c) && (a + c > b) && (b + c > a)) {
+			double m = a + b + c ; 
+			System.out.println("The total length of the triangle is " + m);
+		}
+		else {
+			System.out.println("Side length is illegal.");
+		}
+	}
+}
