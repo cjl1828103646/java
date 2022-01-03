@@ -1,0 +1,34 @@
+package 第三次作业;
+import java.util.Scanner;
+public class 课后练习5_17 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter an integer 1-15: ");
+		int a = input.nextInt();
+		for(int i = 1; i <= a; i++) {
+			for(int j = 1; j <= a - i; j++) {
+					System.out.print("    ");
+				}
+			if(i <= 9 && a > 9) {
+				System.out.print(" ");
+			}
+			for(int h = i; h >= 1; h--) {
+					if(h == i) {
+						System.out.print(h);	
+					}
+					else {
+						System.out.printf("%4d",h);	
+					}
+				}
+			for(int o = 2; o < i; o++) {
+					System.out.printf("%4d",o);	
+				}
+			if(i > 1) {
+					System.out.println("   " + i);	
+				}
+			if(i == 1) {
+					System.out.println();	
+				}
+		}
+	}
+}
