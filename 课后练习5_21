@@ -1,0 +1,24 @@
+package 第三次作业;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class 课后练习5_21 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Loan Amount: ");
+		double loanAmount = input.nextDouble();
+		System.out.print("Number of Years: ");
+		double numberOfYears = input.nextDouble();
+		System.out.println("Interest Rate   Monthly Payment   Total Payment");
+		double annualInerestRate = 5;
+		double monthlyInterestRate;
+		double monthlyPayment;
+		double totalPayment;
+		while(annualInerestRate <= 8) {
+			monthlyInterestRate = annualInerestRate / 1200;
+			monthlyPayment = loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12));
+			totalPayment = monthlyPayment * numberOfYears * 12;
+			System.out.println(new DecimalFormat("0.000").format(annualInerestRate) + "%" +"          " + new DecimalFormat("0.00").format(monthlyPayment) + "             " + new DecimalFormat("0.00").format(totalPayment));
+			annualInerestRate = annualInerestRate + 0.125;
+		}
+	}
+}
