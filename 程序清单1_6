@@ -1,0 +1,10 @@
+package 第二次作业;
+
+public class 程序清单1_6 {
+	public static void main(String[] args) {
+		System.out.print("Celsius 35 is Fahrenheit degree ");
+//		System.out.println((9 / 5) * 35 + 32);
+//		9 改成 9.0 
+		System.out.println((9.0 / 5) * 35 + 32);	
+	}
+}
