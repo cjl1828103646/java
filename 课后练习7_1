@@ -1,0 +1,35 @@
+package 第四次作业;
+import java.util.Scanner;
+public class 课后练习7_1 {
+	public static void main(String[] args) {
+		System.out.print("Enter the number of students: ");
+		Scanner input = new Scanner(System.in);
+		int a = input.nextInt();
+		System.out.print("Enter " + a +" scorss: ");
+		int[]b = new int[a];
+		int max = 0;
+		for(int i = 0;i <a ;i++) {
+			b[i] = input.nextInt();
+			if(b[i] > max) {
+				max = b[i];
+			}
+		}
+		for(int i = 0;i < a;i++) {
+			if(b[i] >= max - 10) {
+				System.out.println("Student " + i + " score is " + b[i] + " and grade is A" );
+			}
+			else if(b[i] >= max - 20) {
+				System.out.println("Student " + i + " score is " + b[i] + " and grade is B" );
+			}
+			else if(b[i] >= max - 30) {
+				System.out.println("Student " + i + " score is " + b[i] + " and grade is C" );
+			}
+			else if(b[i] >= max - 40) {
+				System.out.println("Student " + i + " score is " + b[i] + " and grade is D" );
+			}
+			else {
+				System.out.println("Student " + i + " score is " + b[i] + " and grade is F" );
+			}
+		}
+	}
+}
