@@ -1,0 +1,10 @@
+package 第七次作业;
+import java.util.GregorianCalendar;
+public class 课后练习9_5 {
+	public static void main(String[] args) {
+		GregorianCalendar gc = new GregorianCalendar();
+		System.out.println(gc.get(GregorianCalendar.YEAR) + "年 " + (gc.get(GregorianCalendar.MONTH) +1) + "月 " +gc.get(GregorianCalendar.DAY_OF_MONTH) + "日");
+		gc.setTimeInMillis(1234567898765L);
+		System.out.println(gc.get(GregorianCalendar.YEAR) + "年 " + (gc.get(GregorianCalendar.MONTH) +1) + "月 " +gc.get(GregorianCalendar.DAY_OF_MONTH) + "日");
+	}
+}
