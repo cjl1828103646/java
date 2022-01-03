@@ -1,0 +1,29 @@
+package 第十次作业;
+
+public class 课后练习11_8 {
+	public static void main(String[] args) {
+		Account ac = new Account("George",1122,1000);
+		ac.setAnnualInterestRate(1.5);
+		ac.deposit(30);
+		ac.deposit(40);
+		ac.deposit(50);
+		ac.withDraw(5);
+		ac.withDraw(4);
+		ac.withDraw(2);
+		System.out.print("name: ");
+		System.out.println(ac.getName());
+		System.out.print("AnnualInterestRate: ");
+		System.out.println(ac.getAnnualInterestRate() + "%");
+		System.out.print("Balance: ");
+		System.out.println(ac.getBalance());
+		System.out.println();
+		System.out.printf("%-35s%-14s%-16s%-15s\n","Date","type","amount","balance");
+		java.util.ArrayList<Transaction> list = ac.getTransaction();
+		
+		for(int i = 0;i < list.size() ;i++) {
+			System.out.printf("%-35s%-14s%-16s%-15s\n",list.get(i).getDate(),list.get(i).getType(),list.get(i).getAmount(),list.get(i).getBalance());
+		}
+
+
+	}
+}
