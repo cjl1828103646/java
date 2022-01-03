@@ -1,0 +1,21 @@
+package 第三次作业;
+
+public class 课后练习5_26 {
+	public static void main(String[] args) {
+		double e = 0;
+		double item = 1;
+		int a = 10000;
+		while(a <= 100000) {
+			for(int i = 1; i <= a ;i++) {
+				e = e + 1 / item;
+				for(int j = 1; j<= i;j++) {
+					item = item * j; 
+				}
+			}
+			System.out.println("when i = " + a + ", e = " + e);
+			a = a + 10000;
+			item = 1;
+			e = 0 ;
+		}
+	}
+}
