@@ -1,0 +1,18 @@
+package 第三次作业;
+
+public class 课后练习5_7 {
+	public static void main(String[] args) {
+		double a = 10000;
+		double m = 0;
+		for(int i = 1; i <= 14;i++) {
+			a = a * 1.05;
+			if(i == 10) {
+				System.out.println("The tuition in ten years is :" + a);
+			}
+			if(i >= 11) {
+				m = m + a;
+			}
+		}
+		System.out.println("The total cost of four years’ worth of tuition after the tenth year "+ m);
+	}
+}
