@@ -1,0 +1,32 @@
+package 第十次作业;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class 程序清单11_19 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the number of objects: ");
+		int n = input.nextInt();
+		ArrayList<Integer> list = new ArrayList<>();
+		int a;
+		int b = 1;
+		System.out.print("Enter the weight of the objects: ");
+		for(int i = 0;i < n;i++) {
+			a = input.nextInt();
+			list.add(a);
+		}
+		while(list.size() != 0) {
+			int m = 0;
+			System.out.print("Container " + b + " contains objects with weight ");
+			for(int i = 0;i < list.size();i++) {
+				if(m + list.get(i) <= 10) {
+					m = m + list.get(i);
+					System.out.print(list.get(i) + " ");
+					list.remove(i);
+					i = i - 1;
+				}
+			}
+			b = b + 1;
+			System.out.println();
+		}
+	}
+}
