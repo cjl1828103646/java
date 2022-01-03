@@ -1,0 +1,20 @@
+package 第三次作业;
+import java.util.Scanner;
+public class 课后练习5_38 {
+	public static void main(String[] args) {
+		System.out.print("Enter a decimal integer： ");
+		Scanner input = new Scanner(System.in);
+		int a = input.nextInt();
+		int []b = new int[1000];
+		int n = 0;
+		while(a > 0) {
+			n = n + 1;
+			b[n] = a % 8;
+			a = a / 8;
+		}
+		System.out.print("The octal of this number is ");
+		for(int i = n;i >= 1;i--) {
+			System.out.print(b[i]);
+		}
+	}
+}
