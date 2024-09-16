@@ -1,0 +1,62 @@
+package 第七次作业;
+import java.util.Scanner;
+public class 课后练习9_11 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a, b, c, d, e, f: ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		double d = input.nextDouble();
+		double e = input.nextDouble();
+		double f = input.nextDouble();
+		LinearEquation le = new LinearEquation(a,b,c,d,e,f);
+		if(le.isSolvable()) {
+			System.out.print("x is " + le.getX() + " and y is " + le.getY());
+		}
+		else {
+			System.out.print("The equation has no solution");
+		}
+	}
+}
+class LinearEquation{
+	private double a,b,c,d,e,f;
+	LinearEquation(double x,double y,double z,double q,double w,double s){
+		a = x;
+		b = y;
+		c = z;
+		d = q;
+		e = w;
+		f = s;
+	}
+	public double getA() {
+		return a;
+	}
+	public double getB() {
+		return b;
+	}
+	public double getC() {
+		return c;
+	}
+	public double getD() {
+		return d;
+	}
+	public double getE() {
+		return e;
+	}
+	public double getF() {
+		return f;
+	}
+	public boolean isSolvable() {
+		if(a * d - b * c == 0) {
+			return false;
+		}
+			return true;
+	}
+	public double getX() {
+		return (e * d - b * f) / (a * d - b * c);
+	}
+	public double getY() {
+		return (a * f - e * c) / (a * d - b * c);
+	}
+}

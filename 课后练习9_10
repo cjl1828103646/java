@@ -1,0 +1,53 @@
+package 第七次作业;
+import java.util.Scanner;
+public class 课后练习9_10 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a, b, c: ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		QuardraticEquation qe = new QuardraticEquation(a,b,c);
+		if(qe.getDiscriminant() == 0) {
+			System.out.print("The equation has one root " + qe.getRoot1());
+		}
+		else if(qe.getDiscriminant() > 0) {
+			System.out.print("The equation has two roots" + qe.getRoot1() + " and " + qe.getRoot2());
+		}
+		else{
+			System.out.print("The equation has no real roots");
+		}
+	}
+}
+class QuardraticEquation{
+	private double a,b,c;
+	public QuardraticEquation(double x,double y,double z) {
+		a = x;
+		b = y;
+		c = z;
+	}
+	public double getA() {
+		return a;
+	}
+	public double getB() {
+		return b;
+	}
+	public double getC() {
+		return c;
+	}
+	public double getDiscriminant() {
+		return b * b - 4 * a * c;
+	}
+	public double getRoot1() {
+		if(getDiscriminant() < 0) {
+			return 0;
+		}
+		return (-b + Math.sqrt(getDiscriminant())) / (2 * a);
+	}
+	public double getRoot2() {
+		if(getDiscriminant() < 0) {
+			return 0;
+		}
+		return (-b - Math.sqrt(getDiscriminant())) / (2 * a);
+	}
+}
