@@ -1,0 +1,21 @@
+package 第三次作业;
+
+public class 课后练习5_25 {
+	public static void main(String[] args) {
+		double p = 0;
+		int a = 10000;
+		while(a <= 100000) {
+		for(int i = 1; i <= a;i++) {
+			if(i % 2 == 1) {
+				p = p + 1.0 / (2.0 * i -1.0);
+			}
+			else {
+				p = p + (-1.0) / (2.0 * i -1.0);
+			}
+		}
+		System.out.println("when i = " + a + ", Pi = " + 4 * p);
+		a = a + 10000;
+		p = 0;
+	}
+	}
+}

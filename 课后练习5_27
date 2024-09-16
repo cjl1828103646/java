@@ -1,0 +1,25 @@
+package 第三次作业;
+
+public class 课后练习5_27 {
+	public static void main(String[] args) {
+		int a = 0;
+		for(int i = 101 ;i <= 2100;i++) {
+			if((i % 4 == 0 && i % 100 != 0)|| i % 400 ==0) {
+				a = a + 1;
+				if(a % 10 == 0) {
+					System.out.println(i);
+				}
+				else {
+					System.out.print(i + " ");
+				}
+			}
+		}
+		if(a % 10 != 0) {
+			System.out.println();
+			System.out.println("There are " + a +" leap years during this period.");
+		}
+		else {
+			System.out.println("There are " + a +" leap years during this period.");
+		}
+	}
+}
