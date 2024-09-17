@@ -1,0 +1,111 @@
+package 第十次作业;
+import java.util.Date;
+import java.util.ArrayList;
+public class Account {
+	private int id = 0;
+	private String name;
+	private double balance  = 0;
+	private double annualInterestRate = 0;
+	private Date dateCreated = new Date();
+	private ArrayList<Transaction> transaction= new ArrayList<>();
+	
+	public Account() {
+	}
+	
+	public Account(String name, int id, double balance) {
+		this.name = name;
+		this.id = id;
+		this.balance = balance;
+	}
+	
+	public Account(int id, double balance) {
+		this.id = id;
+		this.balance = balance;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public java.util.ArrayList<Transaction> getTransaction(){
+		return transaction;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	public void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+	
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+	
+	public double getMonthlyInterest() {
+		double monthlyInterestRate = annualInterestRate / 12;
+		return balance * monthlyInterestRate / 100;
+	}
+	
+	public double getMonthlyInterestRate() {
+		double monthlyInterestRate = annualInterestRate / 12;
+		return monthlyInterestRate;
+	}
+	
+	public void withDraw(double money) {
+		balance -= money;
+		Transaction t = new Transaction('W',money,balance);
+		transaction.add(t);
+	}
+	
+	public void deposit(double money) {
+		balance += money;
+		Transaction t = new Transaction('D',money,balance);
+		transaction.add(t);
+	}
+}
+class Transaction {
+	private Date date = new Date();
+	private char type;
+	private double amount;
+	private double balance;
+	
+	public Transaction(char type, double amount, double balance) {
+		this.type = type;
+		this.amount = amount;
+		this.balance = balance;
+	}
+	
+	public java.util.Date getDate(){
+		return date;
+	}
+	
+	public char getType() {
+		return type;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+}

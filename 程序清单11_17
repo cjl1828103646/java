@@ -1,0 +1,33 @@
+package 第十次作业;
+import java.util.Scanner;
+public class 程序清单11_17 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter an integer m: ");
+		int a = input.nextInt();
+		int []b = new int[10001];
+		int c = a;
+		int d = 1;
+		int max = 0;
+		while(a != 1) {
+			for(int i = 2;i <= a;i++) {
+				if(a % i == 0) {
+					if(i > max) {
+						max = i;
+					}
+					b[i] = b[i] + 1;
+					a = a / i;
+					break;
+				}
+			}
+		}
+		for(int i = 2;i <= max;i++) {
+			if(b[i] > 0 && b[i] % 2 == 1) {
+				d = d * i;
+			}
+		}
+		c = c * d;
+		System.out.println("The smallest number n for m * n to be a perfect square is " + d);
+		System.out.println("m * n is " + c);
+	}
+}
