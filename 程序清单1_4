@@ -1,0 +1,12 @@
+package 第二次作业;
+
+public class 程序清单1_4 {
+//	public static main(String[] args) {
+		//加上void	
+	public static void main(String[] args) {
+//		System.out.println("Welcome to Java);
+		//加上右引号
+		System.out.println("Welcome to Java");
+
+	}
+}

@@ -1,0 +1,9 @@
+package 第二次作业;
+
+public class 程序清单1_2 {
+	public static void main(String[] args) {
+		System.out.println("Programming is fun!");
+		System.out.println("Fundamentals First");
+		System.out.println("Problem Driven");
+	}
+}
