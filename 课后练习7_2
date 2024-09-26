@@ -1,0 +1,15 @@
+package 第四次作业;
+import java.util.Scanner;
+public class 课后练习7_2 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter ten integers: ");
+		int []a = new int[10];
+		for(int i = 0;i < 10;i++) {
+			a[i] = input.nextInt();
+		}
+		for(int i = 9;i >= 0;i--) {
+			System.out.print(a[i] + " ");
+		}
+	}
+}
